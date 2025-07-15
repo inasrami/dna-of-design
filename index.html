@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DNA of Design</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+  <style>
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .shimmer {
+      background: linear-gradient(90deg, #2d3748 25%, #4a5568 50%, #2d3748 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen font-sans">
+  <header class="text-center py-8 bg-gradient-to-b from-red-900 to-gray-900 ">
+  <h1 class="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-gray-200">
+    DNA of Design
+  </h1>
+  <p class="mt-2 text-gray-300">Extract color palettes from any website</p>
+</header>
+
+  <main class="container mx-auto px-4 py-8">
+    <section class="max-w-2xl mx-auto bg-gray-800 rounded-xl p-6 shadow-lg">
+      <div class="flex flex-col md:flex-row gap-4">
+        <input
+          id="urlInput"
+          type="text"
+          placeholder="Enter website URL (e.g., https://google.com)"
+          class="flex-1 px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500 placeholder-gray-400"
+        />
+        <button
+          id="analyzeBtn"
+          class="px-6 py-3 bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 rounded-lg text-white font-bold transition-all transform hover:scale-105 shadow-lg"
+        >
+          Analyze
+        </button>
+      </div>
+    </section>
+
+    <!-- Results Container -->
+    <section id="results" class="mt-10">
+      <!-- Empty State (Shown by default) -->
+      <div id="emptyState" class="text-center py-16 bg-gray-800 rounded-xl shadow-lg">
+        <div class="mx-auto w-24 h-24 bg-gray-700 rounded-full flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-200">No analysis yet</h3>
+        <p class="mt-2 text-gray-400 max-w-md mx-auto">Enter a website URL above to extract its color palette.</p>
+      </div>
+
+      <!-- Skeleton Loading (Hidden by default) -->
+      <div id="loadingState" class="hidden text-center py-16">
+        <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-red-600 border-t-transparent mb-6"></div>
+        <p class="text-gray-300">Capturing screenshot and analyzing colors...</p>
+        <div class="mt-8 max-w-3xl mx-auto">
+          <div class="h-64 shimmer rounded-xl mb-6"></div>
+          <div class="grid grid-cols-5 gap-4">
+            <div class="h-8 shimmer rounded-md"></div>
+            <div class="h-8 shimmer rounded-md"></div>
+            <div class="h-8 shimmer rounded-md"></div>
+            <div class="h-8 shimmer rounded-md"></div>
+            <div class="h-8 shimmer rounded-md"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="text-center text-sm text-gray-500 mt-20 py-6 border-t border-gray-800">
+    Built by Inas Rami · <a href="https://github.com/inasrami" class="underline hover:text-gray-300">GitHub</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
