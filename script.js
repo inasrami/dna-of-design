@@ -1,7 +1,6 @@
 const button = document.getElementById('analyzeBtn');
 const input = document.getElementById('urlInput');
 const resultsContainer = document.getElementById('results');
-const API_TOKEN = 'FTYBXBZ-5Q2MQYP-KAAG378-W0PKQZQ'; //Free test API token.
 
 button.addEventListener('click', async () => {
   const websiteUrl = input.value.trim();
@@ -22,7 +21,7 @@ button.addEventListener('click', async () => {
   try {
     
     const encodedUrl = encodeURIComponent(websiteUrl);
-    const apiUrl = `https://shot.screenshotapi.net/v3/screenshot?token=${API_TOKEN}&fresh=true&url=${encodedUrl}&output=image&file_type=png&wait_for_event=load`;
+    const apiUrl = `https://api.screenshotmachine.com?key=4abb1c&url=${encodedUrl}&dimension=1024x768`;
 
     
     const img = new Image();
