@@ -1,7 +1,7 @@
 const button = document.getElementById('analyzeBtn');
 const input = document.getElementById('urlInput');
 const resultsContainer = document.getElementById('results');
-const API_TOKEN = 'FTYBXBZ-5Q2MQYP-KAAG378-W0PKQZQ';
+const API_TOKEN = 'FTYBXBZ-5Q2MQYP-KAAG378-W0PKQZQ'; //Free test API token.
 
 button.addEventListener('click', async () => {
   const websiteUrl = input.value.trim();
@@ -40,11 +40,11 @@ button.addEventListener('click', async () => {
     const colorThief = new ColorThief();
     const palette = colorThief.getPalette(img, 8); 
 
-    // Display results
+    
     resultsContainer.innerHTML = '';
     resultsContainer.appendChild(img);
 
-    // Create color palette UI
+    
     const paletteContainer = document.createElement('div');
     paletteContainer.className = 'grid grid-cols-5 gap-3 max-w-md mx-auto mt-6';
 
@@ -75,7 +75,7 @@ button.addEventListener('click', async () => {
   }
 });
 
-// Helper: Convert RGB to HEX
+
 function rgbToHex(r, g, b) {
   return '#' + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('');
 }
